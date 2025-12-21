@@ -1,6 +1,6 @@
 {
 	"name": "@mercuryworkshop/epoxy-transport",
-	"version": "2.1.28",
+	"version": "2.1.29",
 	"description": "a bare transport that implements end-to-end encryption with epoxy-tls and wisp",
 	"main": "./dist/index.mjs",
 	"keywords": [],
@@ -22,6 +22,7 @@
 	},
 	"exports": {
 		".": {
+			"types": "./lib/index.d.ts",
 			"browser": {
 				"import": "./dist/index.mjs",
 				"require": "./dist/index.js"
