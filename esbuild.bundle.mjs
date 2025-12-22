@@ -1,4 +1,4 @@
-// import { dtsPlugin } from "esbuild-plugin-d.ts";
+import { dtsPlugin } from "esbuild-plugin-d.ts";
 import { build } from "esbuild";
 import path from 'node:path'
 import fs, { readFileSync } from 'node:fs'
@@ -89,24 +89,32 @@ let makeAllPackagesExternalPlugin = {
   },
 }
 
+
 build({
   bundle: true,
   format: "esm",
   entryPoints: [`./src/main.ts`],
   outfile: `./dist/index.mjs`,
   plugins: [wasmPlugin],
-  external: ["fs", "ws", "path"],
+  external: ["fs", "path"],
+  logLevel: "info",
 })
 
-build({
+await build({
   bundle: true,
   format: "cjs",
-  entryPoints: [`./src/main.ts`],
-  outfile: `./dist/index.js`,
-  external: ["fs", "ws", "path"],
-  plugins: [wasmPlugin, dataUrl, umdWrapper(umdWrapperOptions)]
-  // plugins: [dtsPlugin({
-  //   outDir: `./dist/`,
-  //   tsconfig: "tsconfig.json"
-  // })]
+  entryPoints: { index: './src/main.ts' },
+  outdir: `./dist/`,
+  external: ["fs", "path"],
+  logLevel: "info",
+  plugins: [
+    wasmPlugin,
+    umdWrapper(umdWrapperOptions),
+    dtsPlugin({
+      outDir: `./dist/`,
+      tsconfig: "tsconfig.json"
+    })
+  ]
 })
+
+fs.renameSync('./dist/main.d.ts', './dist/index.d.ts');
