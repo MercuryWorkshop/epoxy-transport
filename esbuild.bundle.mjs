@@ -5,27 +5,27 @@ import fs, { readFileSync } from 'node:fs'
 import { umdWrapper } from "esbuild-plugin-umd-wrapper";
 
 const umdWrapperOptions = {
-  libraryName: "EpxMod", // default is unset
+  libraryName: "EpoxyTransport", // default is unset
   external: "inherit", // <= default
   amdLoaderName: "define" // <= default
 }
 
 //for the CJS build: we take the import url and translate it into it's corresponding functions and annd that back to the file.
 const dataUrl = {
-    name: 'data-url-to-functions',
-    setup(build) {
-        build.onLoad({ filter: /\.js$/ }, (args) => {
-            const source = readFileSync(args.path, 'utf-8');
-            const transformedSource = source.replace(/import\s+(?:{[^}]*}\s+from\s+)?['"]data:application\/javascript;base64,([^'"]+)['"];\s*/g, (_, b64) => {
-                const code = Buffer.from(b64, 'base64').toString('utf-8');
-                return code;
-            })
-            return {
-                contents: transformedSource,
-                loader: 'js'
-            }
-        });
-    }
+  name: 'data-url-to-functions',
+  setup(build) {
+    build.onLoad({ filter: /\.js$/ }, (args) => {
+      const source = readFileSync(args.path, 'utf-8');
+      const transformedSource = source.replace(/import\s+(?:{[^}]*}\s+from\s+)?['"]data:application\/javascript;base64,([^'"]+)['"];\s*/g, (_, b64) => {
+        const code = Buffer.from(b64, 'base64').toString('utf-8');
+        return code;
+      })
+      return {
+        contents: transformedSource,
+        loader: 'js'
+      }
+    });
+  }
 }
 
 let wasmPlugin = {
