@@ -9,7 +9,7 @@
 	"license": "AGPL-3.0-only",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/MercuryWorkshop/EpoxyTransport.git"
+		"url": "git+https://github.com/MercuryWorkshop/epoxy-transport.git"
 	},
 	"scripts": {
 		"build": "node esbuild.bundle.mjs",
