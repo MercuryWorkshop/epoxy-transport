@@ -93,4 +93,4 @@ jobs:
         run: npm install -g npm@latest
 
       - name: Publish
-        run: npm publish mercuryworkshop-epoxy-transport-${{ needs.version-check.outputs.new_version }}.tgz --access public --no-git-checks
+        run: npm publish mercuryworkshop-epoxy-transport-${{ needs.version-check.outputs.new_version }}.tgz --access public
