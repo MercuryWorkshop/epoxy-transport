@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@mercuryworkshop/epoxy-tls':
-        specifier: 2.1.19-1
-        version: 2.1.19-1
+        specifier: 2.1.20-1
+        version: 2.1.20-1
     devDependencies:
       '@mercuryworkshop/proxy-transports':
         specifier: ^1.0.2
@@ -183,8 +183,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@mercuryworkshop/epoxy-tls@2.1.19-1':
-    resolution: {integrity: sha512-lF3WVDmKDWfClgFaDm1OAGI6PStcUUKUjNh2AJbfmLXEGh+dT4nvsuTY2QGRImnajCboIRyrpx9eGNY0egZSVg==}
+  '@mercuryworkshop/epoxy-tls@2.1.20-1':
+    resolution: {integrity: sha512-4xRxm8KGcLdHpVrTC2SG0+7khJFH6J6z6XlUsBJSb6Prj3ejVtsVbiWmGkZQcza+F9JZIKmL+i3KC9hHryZ01Q==}
 
   '@mercuryworkshop/proxy-transports@1.0.2':
     resolution: {integrity: sha512-zgD+JMYNSx8LxVLWwGPPVnoDHjoh1GqqwUJIjhIwCwhy+Z7g+MhmiTJvCcRPAo7qXXbqJwIrpBJduRSOrjMV7g==}
@@ -374,7 +374,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.8':
     optional: true
 
-  '@mercuryworkshop/epoxy-tls@2.1.19-1': {}
+  '@mercuryworkshop/epoxy-tls@2.1.20-1': {}
 
   '@mercuryworkshop/proxy-transports@1.0.2': {}
 
