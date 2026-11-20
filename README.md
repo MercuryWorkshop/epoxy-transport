@@ -5,7 +5,7 @@ epoxy-transport is a transport for bare-mux which allows you to use [epoxy-tls](
 ## Usage:
 Here is a basic example of using epoxy-transport. The Wisp proxy server is specified in the `wisp` option. 
 ```js
-import { EpoxyClient } from "@mercuryworkshop/epoxy-transport";
+import EpoxyClient from "@mercuryworkshop/epoxy-transport";
 let client = new EpoxyClient({ wisp: "wss://example.com/wisp/" });
 
 // pass to proxy
